@@ -14,7 +14,7 @@ with open(myfile, "w") as file:  # 'w' stands for "write"
     file.writelines(mydata)  # writes the whole list of strings at once
 
 # Reading from a file (method 1)
-with open(myfile, "r") as file:  # when the program exits the with-block, the file is automatically closed
+with open(myfile, ) as file:  # when the program exits the with-block, the file is automatically closed
     lines = file.readlines()  # reads the whole file at once
 line_number = 0
 for line in lines:
@@ -27,6 +27,6 @@ print()
 line_number = 0
 with open(myfile) as file:
     for line in file:  # reads one line at a time
-        line_number += 4
+        line_number += 1
         print(f"Line {line_number}: {line.strip()}")
     print()

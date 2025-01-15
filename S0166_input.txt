@@ -1,4 +1,4 @@
 Mario 30
 Luigi 29
 Peach 30
-Toad 2
+Toad 1

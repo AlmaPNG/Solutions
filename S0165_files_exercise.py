@@ -20,7 +20,7 @@ Send derefter denne Teams-meddelelse til din lærer: <filename> færdig
 Fortsæt derefter med den næste fil.
 """
 
-minData = ["Mario 30\n", "Luigi 29\n", "Peach 30\n", "Toad 2\n"]  # this is a list of strings
+minData = ["Mario 30\n", "Luigi 29\n", "Peach 30\n", "Toad 1\n"]  # this is a list of strings
 minFil = "S0166_input.txt"  # the name of the file.
 
 with open(minFil, "w") as file:
@@ -30,4 +30,4 @@ with open(minFil, "w") as file:
 with open(minFil, "r") as file:
     for line in file:
         name, age = line.split()
-        print(f"{name} er {age} gammel")
+        print(f"{name} er {age} år gammel")
