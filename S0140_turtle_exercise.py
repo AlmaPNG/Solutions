@@ -45,7 +45,7 @@ Fortsæt derefter med den næste fil.
 
 import turtle  # this imports a library called "turtle". A library is (someone else's) python code, that you can use in your own program.
 
-"""def demo():  # demonstration of basic turtle commands
+def demo():  # demonstration of basic turtle commands
     tom = turtle.Turtle()  # create an object named tom of type Turtle
     print(type(tom))
     tom.speed(1)  # fastest: 10, slowest: 1
@@ -63,10 +63,9 @@ import turtle  # this imports a library called "turtle". A library is (someone e
     tom.forward(120)
     tom.home()  # return to the original position in the middle of the window
     turtle.done()  # keeps the turtle window open after the program is done
-demo()
-"""
 
-"""def square(length):
+
+def square(length):
     tom = turtle.Turtle()
     tom.speed(1)
     tom.pendown()
@@ -74,8 +73,7 @@ demo()
         tom.forward(length)
         tom.right(90)
     turtle.done()
-square(100)
-"""
+
 def many_squares(amount, size, distance):
     tom = turtle.Turtle()
     tom.speed(1)
@@ -89,10 +87,44 @@ def many_squares(amount, size, distance):
         tom.pendown()
     turtle.done()
 
-"""many_squares(6, 100, 200)"""
 
-def loop():
+def spiral():
+    tom = turtle.Turtle()
+    tom.speed(10)
+    tom.width(5)
+    tom.pendown()
+    for x in range(31):
+        tom.forward(x*5)  # Move forward by a growing amount
+        tom.left(90)
+    turtle.done()
+
+def star():
     tom = turtle.Turtle()
     tom.speed(10)
     tom.pendown()
-    for x in range()
+    for x in range(5):
+        tom.forward(60)
+        tom.right(144)
+    turtle.done()
+
+def star_2():
+    tom = turtle.Turtle()
+    tom.speed(10)
+    tom.pendown()
+    for x in range(7):
+        tom.forward(60)
+        tom.left(154)
+    turtle.done()
+
+def stars(points, angle):
+    tom = turtle.Turtle()
+    tom.speed(10)
+    tom.pendown()
+    for x in range(points):
+        tom.forward(60)
+        tom.left(angle)
+    turtle.done()
+# stars(5, 144)
+# stars(7, 154)
+#stars(11, 147.27)
+
