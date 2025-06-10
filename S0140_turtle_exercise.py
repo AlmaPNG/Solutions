@@ -128,3 +128,18 @@ def stars(points, angle):
 # stars(7, 154)
 #stars(11, 147.27)
 
+
+def mypattern(size):
+    tom = turtle.Turtle()
+    tom.speed(10)
+    tom.pendown()
+    tom.color("pink")
+    tom.begin_fill()
+    for x in range(12):
+        tom.forward(size)
+        tom.right(30)
+    tom.end_fill()
+    turtle.done()
+
+
+mypattern(80)
