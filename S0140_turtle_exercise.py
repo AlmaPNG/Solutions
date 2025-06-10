@@ -44,6 +44,8 @@ Fortsæt derefter med den næste fil.
 """
 
 import turtle  # this imports a library called "turtle". A library is (someone else's) python code, that you can use in your own program.
+from ctypes.wintypes import SIZEL
+
 
 def demo():  # demonstration of basic turtle commands
     tom = turtle.Turtle()  # create an object named tom of type Turtle
@@ -129,17 +131,17 @@ def stars(points, angle):
 #stars(11, 147.27)
 
 
-def mypattern(size):
+def mypattern(size, edges):
     tom = turtle.Turtle()
     tom.speed(10)
     tom.pendown()
     tom.color("pink")
     tom.begin_fill()
-    for x in range(12):
+    for x in range(edges):
         tom.forward(size)
-        tom.right(30)
+        tom.right(360/edges)
     tom.end_fill()
     turtle.done()
 
 
-mypattern(80)
+mypattern(80, 20)
