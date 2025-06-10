@@ -27,5 +27,5 @@ with open(myfile) as file:
         name, age = line.strip().split()
         results.append(f"{name} er {age} år gammel.")
 
-for result in results:
-    print(result)
+#for result in results:
+    #print(result)
