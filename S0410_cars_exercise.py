@@ -21,7 +21,13 @@ Send derefter denne Team-besked til din lærer: <filename> færdig
 Fortsæt derefter med den næste fil."""
 
 def drive_car():
-    print("roaaaaar")
+    print("roaaaaar wroom wroom")
 
-max_wheel = 4
-max_speed = 160
+car1_wheel = 4
+car1_speed = 45
+
+car2_wheel = 4
+car2_speed = 550
+
+print(f"The 2024 Fiat Topolino can drive up to {car1_speed} and has {car1_wheel} wheels. The Devel Sixteen can drive up to {car2_speed} and has {car1_wheel} wheels.")
+drive_car()
