@@ -33,17 +33,18 @@ Fortsæt derefter med den næste fil.
 """
 
 
-
 def check_boundaries():
     for x in ["sleepiness", "thirst", "hunger", "whisky", "gold"]:
         morris[x] = max(0, morris[x])
         morris["whisky"] = min(10, morris["whisky"])
 
+
 def sleep():
     morris["sleepiness"] -= 10  # update sleepiness
     morris["thirst"] += 1  # update thirst
-    morris["hunger"] += 1 # update hunger
+    morris["hunger"] += 1  # update hunger
     check_boundaries()
+
 
 def mine():
     morris["sleepiness"] += 5
@@ -52,12 +53,14 @@ def mine():
     morris["gold"] += 5
     check_boundaries()
 
+
 def eat():
-    morris["sleepiness"] -= 10
+    morris["sleepiness"] +=5
     morris["thirst"] -= 5
     morris["hunger"] -= 20
     morris["gold"] -= 2
     check_boundaries()
+
 
 def buy_whisky():
     morris["sleepiness"] += 5
@@ -67,12 +70,14 @@ def buy_whisky():
     morris["gold"] -= 1
     check_boundaries()
 
+
 def drink():
     morris["sleepiness"] += 5
     morris["thirst"] -= 15
     morris["hunger"] -= 1
     morris["whisky"] -= 1
     check_boundaries()
+
 
 def dead():
     return morris["sleepiness"] > 100 or morris["thirst"] > 100 or morris["hunger"] > 100
@@ -93,8 +98,6 @@ def choose_action():
         if morris["gold"] >= 2:
             return eat
     return mine
-
-
 
 
 while not dead() and morris["turn"] < 1000:
