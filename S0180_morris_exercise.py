@@ -33,13 +33,45 @@ Fortsæt derefter med den næste fil.
 """
 
 
+def check_boundaries():
+    for x in ["sleepiness", "thirst", "hunger", "whisky", "gold"]:
+        morris[x] = max(0, morris[x])
+        morris["whisky"] = min(10, morris["whisky"])
 
 def sleep():
     morris["sleepiness"] -= 10  # update sleepiness
-    morris["thirst"] -= 10  # update thirst
-    morris["hunger"] -= 10 # update hunger
-    # check for values out of boundaries
+    morris["thirst"] += 1  # update thirst
+    morris["hunger"] += 1 # update hunger
+    check_boundaries()
 
+def mine():
+    morris["sleepiness"] += 5
+    morris["thirst"] += 5
+    morris["hunger"] += 5
+    morris["gold"] += 5
+    check_boundaries()
+
+def eat():
+    morris["sleepiness"] += 5
+    morris["thirst"] -= 5
+    morris["hunger"] -= 20
+    morris["gold"] -= 2
+    check_boundaries()
+
+def buy_whisky():
+    morris["sleepiness"] += 5
+    morris["thirst"] += 1
+    morris["hunger"] += 1
+    morris["whisky"] += 1
+    morris["gold"] -= 1
+    check_boundaries()
+
+def drink():
+    morris["sleepiness"] += 5
+    morris["thirst"] -= 15
+    morris["hunger"] -= 1
+    morris["whisky"] -= 1
+    check_boundaries()
 
 def dead():
     return morris["sleepiness"] > 100 or morris["thirst"] > 100 or morris["hunger"] > 100
@@ -47,7 +79,25 @@ def dead():
 
 morris = {"turn": 0, "sleepiness": 0, "thirst": 0, "hunger": 0, "whisky": 0, "gold": 0}  # dictionary
 
+
+def choose_action():
+    if morris["sleepiness"] > 80:
+        return sleep
+    elif morris["thirst"] > 80:
+        if morris["whisky"] > 0:
+            return drink
+        elif morris["gold"] > 0:
+            return buy_whisky
+    elif morris["hunger"] > 80:
+        if morris["gold"] >= 2:
+            return eat
+    return mine
+
+
+
+
 while not dead() and morris["turn"] < 1000:
     morris["turn"] += 1
-    sleep()
+    action = choose_action()
+    action()
     print(morris)
